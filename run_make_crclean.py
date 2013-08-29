@@ -2,7 +2,7 @@
 
 '''
 ABOUT:
-This programs constructs crclean images from a list of flat-fielded HST images.
+This programs constructs crclean images from a list of ASN files or flat-fielded HST images.
 
 DEPENDS:
 Python 2.5.4
@@ -42,6 +42,7 @@ if __name__=='__main__':
     parser.add_argument('-i', '--images',default='*fl?.fits', type=str, help='Input fl? fits images. \
                                  Default is all _fl? images in current directory.')
 
+
     options = parser.parse_args()
     USE_ASN = not(options.no_asn)
     NCORES = options.cores
@@ -50,16 +51,14 @@ if __name__=='__main__':
     imlist = glob.glob(options.images)
     imlist.sort()
 
+
     # -- construct crclean images
     if USE_ASN:
 	# -- make list of assoc files
 	if len(asnlist) == 0: raise Exception('No asn files located. Use switch "-na" if not using asn files.') 
-    	instrum = pyfits.getheader(asnlist[0])['INSTRUME']
-	for asn in asnlist: astrodrizzle.AstroDrizzle(asn,configobj='crclean_'+instrum+'.cfg',num_cores=NCORES)
+	for asn in asnlist: astrodrizzle.AstroDrizzle(asn,driz_combine=False,num_cores=NCORES,driz_sep_bits='256,64,32',driz_cr_corr=True,preserve=False)
     else:
-	instrum = pyfits.getheader(imlist[0])['INSTRUME']
-        astrodrizzle.AstroDrizzle('*fl?.fits',configobj='crclean_'+instrum+'.cfg',num_cores=NCORES)
-
+	astrodrizzle.AstroDrizzle('*fl?.fits',driz_combine=False,num_cores=NCORES,driz_sep_bits='256,64,32',driz_cr_corr=True,preserve=False)
 
     # -- remove unwanted files
     bad = np.concatenate((glob.glob('*single*fits'),glob.glob('*crmask.fits'),glob.glob('tmp*.fits'),glob.glob('*blt.fits'), glob.glob('*med.fits')))
