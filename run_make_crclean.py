@@ -16,8 +16,8 @@ August 2013: Original script (v0.1).
 FUTURE IMPROVEMENTS:
 
 USE:
-python run_make_crclean.py		--> uses *asn.fits files to make crcleans for each group of flt (DEFAULT).
-python run_make_crclean.py -na      	--> makes crcleans using all flts in current directory in one call.
+python run_make_crclean.py		--> uses *asn.fits files to make crcleans for each group of flt/flc (DEFAULT).
+python run_make_crclean.py -na      	--> makes crcleans using all flts/flcs in current directory in one call.
 
 '''
 
@@ -54,10 +54,11 @@ if __name__=='__main__':
 
     # -- construct crclean images
     if USE_ASN:
-	# -- make list of assoc files
+	# -- from list of assoc files
 	if len(asnlist) == 0: raise Exception('No asn files located. Use switch "-na" if not using asn files.') 
 	for asn in asnlist: astrodrizzle.AstroDrizzle(asn,driz_combine=False,num_cores=NCORES,driz_sep_bits='256,64,32',driz_cr_corr=True,preserve=False)
     else:
+    	# -- single run on all flt/flc images
 	astrodrizzle.AstroDrizzle('*fl?.fits',driz_combine=False,num_cores=NCORES,driz_sep_bits='256,64,32',driz_cr_corr=True,preserve=False)
 
     # -- remove unwanted files
