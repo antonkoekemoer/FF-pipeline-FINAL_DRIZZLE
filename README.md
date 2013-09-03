@@ -22,7 +22,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * creates external ascii file "catfile.coo" that will be used in step 3.
     * Output: *.coo = trimmed ImageFind catalog; catfile.coo = tweakreg input
 
-3. *run_tweakreg_crclean*
+3. *run_tweakreg*
     * aligns _flt images using tweakreg with external catalogs (either SExtractor or ImageFind).
     * tweakreg uses configuration files named "tweakreg_filtername.cfg."
     * Output: tweakreg.log; imlist.dat = list of flt images to align; *fit.match = catalog of matched objects
@@ -41,7 +41,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * creates ds9 region files for full and trimmed catalog (via the "cat2reg" gawk script).
     * Output: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2).
 
-7. *run_tweakreg_crclean*
+7. *run_tweakreg*
     * same script used to align flt images, but called with refim and refcat to align drz-->drz.
     * Output: tweakreg.log; imlist.dat = list of flt images to align; *fit.match = catalog of matched objects
 
