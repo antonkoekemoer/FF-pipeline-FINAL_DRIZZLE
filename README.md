@@ -22,7 +22,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * creates external ascii file "catfile.coo" that will be used in step 3.
     * Output: *.coo = trimmed ImageFind catalog; catfile.coo = tweakreg input
 
-3. *run_tweakreg*
+3. *run_tweakreg* (temporary script?)
     * aligns _flt images using tweakreg with external catalogs (either SExtractor or ImageFind).
     * tweakreg uses configuration files named "tweakreg_filtername.cfg."
     * Output: tweakreg.log; imlist.dat = list of flt images to align; *fit.match = catalog of matched objects
@@ -31,7 +31,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * constructs tweakreg diagnostic diagrams (delta-x/y vs x/y and vectorgram) using *fit.match files.
     * Output: xxxxx_xyresids.pdf & xxxxx_xyvector.pdf
 
-5. *run_drizzle_crclean*
+5. *run_drizzle*  (temporary script?)
     * creates drizzled images from aligned flt images using configuration files drizzle_[instr].cfg.
     * Output: drizzled sci, wht, and ctx images; astrodrizzle.log
 
