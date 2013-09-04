@@ -57,7 +57,6 @@ if __name__=='__main__':
     # -- run AstroDrizzle
     teal.unlearn('astrodrizzle')
     iraf.unlearn('astrodrizzle')
-    #astrodrizzle.AstroDrizzle('@imlist.dat',configobj='drizzle_'+instrum+'.cfg')
 
     # MISSING STEP HERE!!!!
     # --We need to figure out which pixfrac/pixscale to select. Run test of rms/median on [WHT] image.
