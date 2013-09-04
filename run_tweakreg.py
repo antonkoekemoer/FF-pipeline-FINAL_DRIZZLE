@@ -85,9 +85,9 @@ if __name__=='__main__':
     iraf.unlearn('tweakreg')
     if USE_REF:
         tweakreg.TweakReg('@imlist.dat',catfile=catfilename,xcol=8,ycol=9,refimage=irefim,refcat=irefcat,refxyunits='pixels',refxcol=8,refycol=9,\
-			conv_width=conv_wid,searchrad=1.0,updatehdr=True,nclip=7,shiftfile=True,outshifts='shift.dat', see2dplot=False,residplot='No plot')
+			conv_width=conv_wid,searchrad=3.0,updatehdr=True,nclip=7,shiftfile=True,outshifts='shift.dat', see2dplot=False,residplot='No plot')
     else:
-        tweakreg.TweakReg('@imlist.dat',catfile=catfilename,xcol=8,ycol=9,conv_width=conv_wid,searchrad=1.0,\
+        tweakreg.TweakReg('@imlist.dat',catfile=catfilename,xcol=8,ycol=9,conv_width=conv_wid,searchrad=3.0,\
 			updatehdr=True,nclip=7,shiftfile=True,outshifts='shift.dat',see2dplot=False,residplot='No plot')
 
 
