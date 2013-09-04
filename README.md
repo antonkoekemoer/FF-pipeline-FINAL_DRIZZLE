@@ -31,7 +31,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * Output: xxxxx_xyresids.pdf & xxxxx_xyvector.pdf
 
 5. *run_drizzle*
-    * creates drizzled images from aligned flt images using configuration files drizzle_[instr].cfg.
+    * creates drizzled images from a stack of aligned flt images.
     * Output: drizzled sci, wht, and ctx images; astrodrizzle.log
 
 6. *run_sex_drz*
