@@ -61,7 +61,7 @@ if __name__=='__main__':
 	    astrodrizzle.AstroDrizzle(asn,driz_combine=False,num_cores=NCORES,driz_sep_bits='256,64,32',driz_cr_corr=True,preserve=False,runfile=logfile)
     else:
     	# -- single run on all flt/flc images
-	astrodrizzle.AstroDrizzle('*fl?.fits',driz_combine=False,num_cores=NCORES,driz_sep_bits='256,64,32',driz_cr_corr=True,preserve=False,runfile='crclean.log')
+	astrodrizzle.AstroDrizzle('*fl?.fits',driz_combine=False,num_cores=NCORES,driz_sep_bits='256,64,32',driz_cr_corr=True,preserve=False,runfile=logfile)
 
     # -- remove unwanted files
     bad = np.concatenate((glob.glob('*single*fits'),glob.glob('*crmask.fits'),glob.glob('tmp*.fits'),glob.glob('*blt.fits'), glob.glob('*med.fits')))
