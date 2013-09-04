@@ -9,14 +9,13 @@ Latest scripts and configuration files that will be used to align and drizzle im
 
 2. *run_sex_crclean*
     * creates SExtractor catalogs for each crlean image using config named [filter].sex.crclean.config.
-    * removes bad sources such as objects with bad flags and keeps only 100 brightest (default).
+    * makes trimmed catalog by keeping only sources with good flags (0/2) and bright fluxes (100 is default).
     * creates ds9 region files for full and trimmed catalog (via the "cat2reg" gawk script).
     * creates external ascii file "catfile.sex" that will be used in step 3.
-    * We still have to edit the selection criteria, e.g., select on mrphology via CLASS_STAR
     * Output: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2); catfile.sex = tweak input
 
     -- OR --
-    
+
    *run_find_crclean* (temporary name holder - script is being written)
     * creates ImageFind catalogs for each crlean image.
     * removes bad sources located within 50 pixels of image edge.
@@ -40,6 +39,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * creates SExtractor catalogs for drizzled images using config named [filter].sex.drz.config.
     * removes bad sources such as objects with bad flags and keeps only 100 brightest (default).
     * creates ds9 region files for full and trimmed catalog (via the "cat2reg" gawk script).
+    * NOTE: we still have to edit the selection criteria, e.g., select on mrphology via CLASS_STAR to only keep 
     * Output: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2).
 
 7. *run_tweakreg*
