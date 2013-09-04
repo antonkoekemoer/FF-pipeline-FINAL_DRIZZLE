@@ -66,9 +66,11 @@ if __name__=='__main__':
             instr = fheader['INSTRUME']
             if instr == 'WFC3':
                 filtname = fheader['FILTER']
+                pscale = 0.1283
             else: #assuming ACS
                 filtname = fheader['FILTER1']
                 if filtname[0] == 'C': filtname = fheader['FILTER2']
+                pscale = 0.0496
         else: filtname=''
 
 	
@@ -100,12 +102,12 @@ if __name__=='__main__':
 	if ctr == 0:
         	fig1=pylab.figure(figsize=(11,8))
         	fig1.subplots_adjust(wspace=0.3, hspace=0.2)
-        	fig1.suptitle(filtname+' XY Residuals in UDF ('+pref+').  RMS(X)={:1.2f}'.format(xrms)+'  RMS(Y)={:1.2f}'.format(yrms)+'  # objects='+str(len(xs)), \
+        	fig1.suptitle(filtname+' XY Residuals ('+pref+').  RMS(X)={:1.2f}'.format(xrms)+'  RMS(Y)={:1.2f}'.format(yrms)+'  # objects='+str(len(xs)), \
                 		ha='center', color='black', weight='normal')
 	else:
 		pylab.figure(fig1.number)
 		pylab.clf()
-		fig1.suptitle(filtname+' XY Residuals in UDF ('+pref+').  RMS(X)={:1.2f}'.format(xrms)+'  RMS(Y)={:1.2f}'.format(yrms)+'  # objects='+str(len(xs)), \
+		fig1.suptitle(filtname+' XY Residuals ('+pref+').  RMS(X)={:1.2f}'.format(xrms)+'  RMS(Y)={:1.2f}'.format(yrms)+'  # objects='+str(len(xs)), \
 				ha='center', color='black', weight='normal')
 
 	# -- delta-X vs. X
