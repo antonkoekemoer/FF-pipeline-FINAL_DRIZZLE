@@ -12,6 +12,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * removes bad sources such as objects with bad flags and keeps only 100 brightest (default).
     * creates ds9 region files for full and trimmed catalog (via the "cat2reg" gawk script).
     * creates external ascii file "catfile.sex" that will be used in step 3.
+    * We still have to edit the selection criteria, e.g., select on mrphology via CLASS_STAR
     * Output: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2); catfile.sex = tweak input
 
     -- OR --
