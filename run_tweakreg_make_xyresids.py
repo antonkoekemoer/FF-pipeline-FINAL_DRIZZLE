@@ -49,16 +49,6 @@ if __name__=='__main__':
     # Iterate over each catalog and make diagrams
     # --------------------------------------------
     for cat,im,pref,ctr in zip(fitcats,images,impref,xrange(len(fitcats))):
-
-        # -- read in matched catalog (note that residuals are fit-input)
-        xref,yref,x,y,xs,ys,xreforg,yreforg,xorg,yorg,chip = np.loadtxt(cat,unpack=True,usecols=(0,1,2,3,6,7,8,9,10,11,14))
-
-
-        # -- generate fit statistics
-        xrms = np.std(xs)
-        yrms = np.std(ys)
-
-
         # -- record filter name
         checkim = glob.glob(im)
         if len(checkim) > 0:
@@ -73,7 +63,19 @@ if __name__=='__main__':
                 pscale = 0.0496
         else: filtname=''
 
-	
+
+
+        # -- read in matched catalog (note that residuals are fit-input)
+        xref,yref,x,y,xs,ys,xreforg,yreforg,xorg,yorg,chip = np.loadtxt(cat,unpack=True,usecols=(0,1,2,3,6,7,8,9,10,11,14))
+
+
+        # -- generate fit statistics
+        xrms = np.std(xs)
+        yrms = np.std(ys)
+	xrms_sec = xrms * pscale
+	yrms_sec = yrms * pscale
+
+
 	# -- establish x-range & xtick intervals for diagrams
 	if filtname[0:2] == 'F1':
             x0 = -520
@@ -180,6 +182,7 @@ if __name__=='__main__':
             pylab.figure(fig2.number)
             pylab.clf()
 
+
         # -- plot vector diagram
         ax2=pylab.subplot(1,1,1,aspect='equal')
         Q=ax2.quiver(xref,yref,xs,ys,color='r', angles='xy',units='xy',scale=1.0/2000.)
@@ -191,7 +194,7 @@ if __name__=='__main__':
         ax2.yaxis.set_major_locator(MultipleLocator(xtmax_vec))
         ax2.xaxis.set_minor_locator(MultipleLocator(xtmin_vec))
         ax2.xaxis.set_major_locator(MultipleLocator(xtmax_vec))
-        pylab.title(filtname+' XY Residuals in UDF ('+pref+').  RMS(X)={:1.2f}'.format(xrms)+'  RMS(Y)={:1.2f}'.format(yrms)+'  # objects='+str(len(xs)),size='small')
+        pylab.title(filtname+' XY Residuals in UDF ('+pref+').  RMS(X)={:1.2f}'.format(xrms)+'  RMS(Y)={:1.2f} pix ({:2.2} mas)'.format(yrms,)+'  # objects='+str(len(xs)),size='small')
         qk = pylab.quiverkey(Q, 0.915, 0.937,0.05,'0.05 pix', labelpos='N', coordinates='axes', fontproperties={'weight': 'bold'}, color='black')
         pylab.show()
         pylab.savefig(pref+'_tweakreg_xyvector.pdf')
