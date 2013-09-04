@@ -35,6 +35,8 @@ if __name__=='__main__':
     parser = argparse.ArgumentParser(description='Run tweakreg on input images using custom source catalogs.')
     parser.add_argument('-a', '--asn',default='*asn.fits', type=str, help='Input association fits file(s). \
                                  Default is all _asn files in current directory.')
+    parser.add_argument('-log', '--logfile',default='crclean.log', type=str, help='Input name of astrodrizzle log file. \
+				 Default is crclean.log')
     parser.add_argument('-na', '--no_asn',default=False, action='store_true', help='Should we construct crcleans using all flts in current directory in one call? \
                                  Default is False, i.e., by default, we construct crleans spearately for flts in each _asn.fits file.')
     parser.add_argument('-c', '--cores',default=4, type=int, help='Input number of processing cores used by AD. \
