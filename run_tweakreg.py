@@ -33,6 +33,8 @@ if __name__=='__main__':
     parser = argparse.ArgumentParser(description='Run tweakreg on input images using custom source catalogs.')
     parser.add_argument('-im', '--images',default='*fl?.fits', type=str, help='Input image file(s). \
 				 Default is all _fl? images in current directory.')
+    parser.add_argument('-cf', '--catfile',default='catfile.sex', type=str, help='Input name of catfile. \
+				 Default is catfile.sex.')
     parser.add_argument('-rim', '--refim',default='', type=str, help='Input refererence image. \
                                  There is no default - must be entered.')
     parser.add_argument('-rcat', '--refcat',default='', type=str, help='Input image file(s). \
@@ -63,7 +65,7 @@ if __name__=='__main__':
     f = open('imlist.dat', 'w')
     for ff in im: f.write(ff+'\n')
     f.close()
-    catfilename = glob.glob('catfile.???')[0]
+    catfilename = options.catfile
 
 
     # -- set conv width based on filter name (IR = 2.5; optical=3.5)
