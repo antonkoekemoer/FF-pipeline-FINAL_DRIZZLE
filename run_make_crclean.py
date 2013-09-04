@@ -55,8 +55,10 @@ if __name__=='__main__':
     # -- construct crclean images
     if USE_ASN:
 	# -- from list of assoc files
-	if len(asnlist) == 0: raise Exception('No asn files located. Use switch "-na" if not using asn files.') 
-	for asn in asnlist: astrodrizzle.AstroDrizzle(asn,driz_combine=False,num_cores=NCORES,driz_sep_bits='256,64,32',driz_cr_corr=True,preserve=False,runfile='crclean.log')
+	if len(asnlist) == 0: raise Exception('No asn files located. Use switch "-na" if not using asn files.')
+	for asn in asnlist:
+	    logfile = asn.split('.asn')[0]+'_crclean.log'
+	    astrodrizzle.AstroDrizzle(asn,driz_combine=False,num_cores=NCORES,driz_sep_bits='256,64,32',driz_cr_corr=True,preserve=False,runfile=logfile)
     else:
     	# -- single run on all flt/flc images
 	astrodrizzle.AstroDrizzle('*fl?.fits',driz_combine=False,num_cores=NCORES,driz_sep_bits='256,64,32',driz_cr_corr=True,preserve=False,runfile='crclean.log')
