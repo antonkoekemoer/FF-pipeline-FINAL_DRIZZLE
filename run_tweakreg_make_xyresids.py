@@ -49,6 +49,7 @@ if __name__=='__main__':
     # Iterate over each catalog and make diagrams
     # --------------------------------------------
     for cat,im,pref,ctr in zip(fitcats,images,impref,xrange(len(fitcats))):
+    	
         # -- record filter name
         checkim = glob.glob(im)
         if len(checkim) > 0:
@@ -64,7 +65,6 @@ if __name__=='__main__':
         else: filtname=''
 
 
-
         # -- read in matched catalog (note that residuals are fit-input)
         xref,yref,x,y,xs,ys,xreforg,yreforg,xorg,yorg,chip = np.loadtxt(cat,unpack=True,usecols=(0,1,2,3,6,7,8,9,10,11,14))
 
@@ -72,8 +72,8 @@ if __name__=='__main__':
         # -- generate fit statistics
         xrms = np.std(xs)
         yrms = np.std(ys)
-	xrms_sec = xrms * pscale
-	yrms_sec = yrms * pscale
+	xrms_mas = xrms * pscale * 1000.0
+	yrms_mas = yrms * pscale * 1000.0
 
 
 	# -- establish x-range & xtick intervals for diagrams
@@ -104,12 +104,12 @@ if __name__=='__main__':
 	if ctr == 0:
         	fig1=pylab.figure(figsize=(11,8))
         	fig1.subplots_adjust(wspace=0.3, hspace=0.2)
-        	fig1.suptitle(filtname+' XY Residuals ('+pref+').  RMS(X)={:1.2f}'.format(xrms)+'  RMS(Y)={:1.2f}'.format(yrms)+'  # objects='+str(len(xs)), \
+        	fig1.suptitle(filtname+' XY Residuals ('+pref+').  RMS(X)={:1.2f} pix ({:2.2} mas)'.format(xrms,xrms_mas)+'  RMS(Y)={:1.2f} pix ({:2.2} mas)'.format(yrms,yrms_mas)+'  # objects='+str(len(xs)), \
                 		ha='center', color='black', weight='normal')
 	else:
 		pylab.figure(fig1.number)
 		pylab.clf()
-		fig1.suptitle(filtname+' XY Residuals ('+pref+').  RMS(X)={:1.2f}'.format(xrms)+'  RMS(Y)={:1.2f}'.format(yrms)+'  # objects='+str(len(xs)), \
+		fig1.suptitle(filtname+' XY Residuals ('+pref+').  RMS(X)={:1.2f} pix ({:2.2} mas)'.format(xrms,xrms_mas)+'  RMS(Y)={:1.2f} pix ({:2.2} mas)'.format(yrms,yrms_mas)+'  # objects='+str(len(xs)), \
 				ha='center', color='black', weight='normal')
 
 	# -- delta-X vs. X
@@ -194,7 +194,7 @@ if __name__=='__main__':
         ax2.yaxis.set_major_locator(MultipleLocator(xtmax_vec))
         ax2.xaxis.set_minor_locator(MultipleLocator(xtmin_vec))
         ax2.xaxis.set_major_locator(MultipleLocator(xtmax_vec))
-        pylab.title(filtname+' XY Residuals in UDF ('+pref+').  RMS(X)={:1.2f}'.format(xrms)+'  RMS(Y)={:1.2f} pix ({:2.2} mas)'.format(yrms,)+'  # objects='+str(len(xs)),size='small')
+        pylab.title(filtname+' XY Residuals in UDF ('+pref+').  RMS(X)={:1.2f} pix ({:2.2} mas)'.format(xrms,xrms_mas)+'  RMS(Y)={:1.2f} pix ({:2.2} mas)'.format(yrms,yrms_mas)+'  # objects='+str(len(xs)),size='small')
         qk = pylab.quiverkey(Q, 0.915, 0.937,0.05,'0.05 pix', labelpos='N', coordinates='axes', fontproperties={'weight': 'bold'}, color='black')
         pylab.show()
         pylab.savefig(pref+'_tweakreg_xyvector.pdf')
