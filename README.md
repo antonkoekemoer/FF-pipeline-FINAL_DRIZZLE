@@ -18,7 +18,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
 
    *run_find_crclean* (temporary name holder - script is being written)
     * creates ImageFind catalogs for each crlean image.
-    * removes bad sources located within 50 pixels of image edge.
+    * removes sources located within 50 pixels of image edge.
     * creates external ascii file "catfile.coo" that will be used in step 3.
     * Output: *.coo = trimmed ImageFind catalog; catfile.coo = tweakreg input
 
