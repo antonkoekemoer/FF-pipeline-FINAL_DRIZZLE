@@ -64,7 +64,7 @@ if __name__=='__main__':
     				   combine_type = 'median', final_wcs=True,final_rot=0.0,final_scale=0.05,final_pixfrac=0.6)
     elif instrum == 'ACS':
     	astrodrizzle.AstroDrizzle('@imlist.dat',output=filtname.lower(),num_cores=4,final_bits='64,32',in_memory=True,clean=True, combine_type=imedian,preserve=False,\
-                                   final_wcs=True,final_rot=0.0,final_scale=0.03,final_pixfrac=0.4)
+                                   combine_type = 'median', final_wcs=True,final_rot=0.0,final_scale=0.03,final_pixfrac=0.4)
     else: raise Exception('Instrument '+instrum+' not covered in our case list.')
 
 
