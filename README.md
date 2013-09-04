@@ -5,7 +5,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
 1. *run_make_crclean*
     * create crcleans for _flts in each separate _asn file (default).
     * optionally, can create crcleans for stack of flts.
-    * Output: xxxxxx_crclean.fits; astrodrizzle.log
+    * Output: [flt root]_crclean.fits; crclean.log (default)
 
 2. *run_sex_crclean*
     * creates SExtractor catalogs for each crlean image using config named [filter].sex.crclean.config.
