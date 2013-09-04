@@ -35,12 +35,15 @@ if __name__=='__main__':
 				 Default is all _fl? images in current directory.')
     parser.add_argument('-cf', '--catfile',default='catfile.sex', type=str, help='Input name of catfile. \
 				 Default is catfile.sex.')
+    parser.add_argument('-log', '--logfile',default='tweakreg.log', type=str, help='Input name of tweakreg log file. \
+				 Default is tweakreg.log')
     parser.add_argument('-rim', '--refim',default='', type=str, help='Input refererence image. \
                                  There is no default - must be entered.')
     parser.add_argument('-rcat', '--refcat',default='', type=str, help='Input image file(s). \
                                  There is no default - must be entered.')
     options = parser.parse_args()
-
+    logfile = options.logfile
+    catfilename = options.catfile
 
     # -- parse input to hold image and reference info
     im = glob.glob(options.images)
@@ -65,7 +68,6 @@ if __name__=='__main__':
     f = open('imlist.dat', 'w')
     for ff in im: f.write(ff+'\n')
     f.close()
-    catfilename = options.catfile
 
 
     # -- set conv width based on filter name (IR = 2.5; optical=3.5)
@@ -84,10 +86,10 @@ if __name__=='__main__':
     # -- run tweakreg (SExtractor catalog: XWIN cols 8/9; XORG cols 2/3)
     iraf.unlearn('tweakreg')
     if USE_REF:
-        tweakreg.TweakReg('@imlist.dat',catfile=catfilename,xcol=8,ycol=9,refimage=irefim,refcat=irefcat,refxyunits='pixels',refxcol=8,refycol=9,\
+        tweakreg.TweakReg('@imlist.dat',catfile=catfilename,xcol=8,ycol=9,refimage=irefim,refcat=irefcat,refxyunits='pixels',refxcol=8,refycol=9, runfile=logfile, \
 			conv_width=conv_wid,searchrad=3.0,updatehdr=True,nclip=7,shiftfile=True,outshifts='shift.dat', see2dplot=False,residplot='No plot')
     else:
-        tweakreg.TweakReg('@imlist.dat',catfile=catfilename,xcol=8,ycol=9,conv_width=conv_wid,searchrad=3.0,\
+        tweakreg.TweakReg('@imlist.dat',catfile=catfilename,xcol=8,ycol=9,conv_width=conv_wid,searchrad=3.0, runfile=logfile, \
 			updatehdr=True,nclip=7,shiftfile=True,outshifts='shift.dat',see2dplot=False,residplot='No plot')
 
 
