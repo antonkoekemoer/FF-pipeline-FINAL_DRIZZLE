@@ -59,6 +59,9 @@ if __name__=='__main__':
     iraf.unlearn('astrodrizzle')
     #astrodrizzle.AstroDrizzle('@imlist.dat',configobj='drizzle_'+instrum+'.cfg')
 
+    # MISSING STEP HERE!!!!
+    # --We need to figure out which pixfrac/pixscale to select. Run test of rms/median on [WHT] image.
+
     if instrum == 'WFC3':
         astrodrizzle.AstroDrizzle('@imlist.dat',output=filtname.lower(),num_cores=4,final_bits='64', in_memory=True,clean=True, combine_type='imedian',preseve=False, \
     				   combine_type = 'median', final_wcs=True,final_rot=0.0,final_scale=0.03,final_pixfrac=0.6)
