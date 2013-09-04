@@ -23,8 +23,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * Output: *.coo = trimmed ImageFind catalog; catfile.coo = tweakreg input
 
 3. *run_tweakreg*
-    * aligns _flt images using tweakreg with external catalogs (either SExtractor or ImageFind).
-    * tweakreg uses configuration files named "tweakreg_filtername.cfg."
+    * aligns _flt images using tweakreg with external catalogs (either SExtractor,ImageFind, or hst2align).
     * Output: tweakreg.log; imlist.dat = list of flt images to align; *fit.match = catalog of matched objects
 
 4. *run_tweakreg_make_xyresids*
