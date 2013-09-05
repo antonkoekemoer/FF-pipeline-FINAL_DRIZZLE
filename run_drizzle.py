@@ -34,6 +34,10 @@ if __name__=='__main__':
     parser = argparse.ArgumentParser(description='Run tweakreg on input images using custom source catalogs.')
     parser.add_argument('-im', '--images',default='*fl?.fits', type=str, help='Input image file(s). \
 				 Default is all _fl? images in current directory.')
+    parser.add_argument('-pf', '--pixfrac',default=1.0, type=float, help='Input AstroDrizzle "final_pixfrac" parameter. \
+    				Default is 1.0')
+    parser.add_argument('-ps', '--pixscale',default=-1.0, type=float, help='Input AstroDrizzle "final_scale" parameter. \
+    				Default value is assigned based on instrument default pixel size.') 
     parser.add_argument('-c', '--cores',default=4, type=int, help='Input number of processing cores used by AD. \
                                  Default is 4.')
     options = parser.parse_args()
@@ -41,6 +45,8 @@ if __name__=='__main__':
 
     # -- initialize variables to hold filenames & print image list to file
     NCORES = options.cores
+    pixscale = options.pixscale
+    pixfrac = options.pixfrac
     imlist = glob.glob(options.images)
     imlist.sort()
     f = open('imlist.dat', 'w')
@@ -52,10 +58,11 @@ if __name__=='__main__':
     instrum = pyfits.getheader(imlist[0])['INSTRUME']
     if instrum == 'WFC3':
             filtname = pyfits.getheader(imlist[0])['FILTER']
+            if pixscale < 0: pixscale = 0.1283
     elif instrum == 'ACS':
             filtname = pyfits.getheader(imlist[0])['FILTER1']
             if filtname[0] == 'C': filtname = pyfits.getheader(imlist[0])['FILTER2']
-
+	    if pixscale < 0: pixscale = 0.0496
 
     # -- run AstroDrizzle
     teal.unlearn('astrodrizzle')
@@ -66,10 +73,10 @@ if __name__=='__main__':
 
     if instrum == 'WFC3':
         astrodrizzle.AstroDrizzle('@imlist.dat',output=filtname.lower(),num_cores=NCORES,final_bits='64', in_memory=True,clean=True, combine_type=imedian,preseve=False, \
-    				   final_wcs=True,final_rot=0.0,final_scale=0.03,final_pixfrac=0.4, final_kernel='gaussian')
+    				   final_wcs=True,final_rot=0.0,final_scale=0.03,final_pixfrac=pixfrac, final_kernel='gaussian')
     elif instrum == 'ACS':
     	astrodrizzle.AstroDrizzle('@imlist.dat',output=filtname.lower(),num_cores=NCORES,final_bits='64,32',in_memory=True,clean=True, combine_type=imedian,preserve=False,\
-                                   final_wcs=True,final_rot=0.0,final_scale=0.03,final_pixfrac=0.6,final_kernel='gaussian')
+                                   final_wcs=True,final_rot=0.0,final_scale=0.03,final_pixfrac=pixfrac,final_kernel='gaussian')
     else: raise Exception('Instrument '+instrum+' not covered in our case list.')
 
 
