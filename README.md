@@ -61,6 +61,9 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * _Options_:  
                [-im images] [-cf catfile name] [-log tweakreg logfile name] [-rim ref image] [-rcat ref catalog]  
                [-xc catalog x column] [-yc catalog y column] [-rxc refcat x column] [-ryc refcat y column]
+    * _WARNING_: main must include if/else statement:  
+         IF filter == reference, then refim/rafcat correspond to ground-based image/catalog,  
+         ELSE refim/refcat correspond to image/catalog of our reference filter.
 
 8. *run_tweakreg_make_xyresids*  (SAME AS STEP4 BUT MAKES DIAGRAMS FOR DRZ-->DRZ DIAGRAMS -- UNDER CONSTRUCTION)
     * _Purpose_: constructs tweakreg diagnostic diagrams (delta-x/y vs x/y and vectorgram) using *fit.match files.
