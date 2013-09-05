@@ -73,10 +73,10 @@ if __name__=='__main__':
 
     if instrum == 'WFC3':
         astrodrizzle.AstroDrizzle('@imlist.dat',output=filtname.lower(),num_cores=NCORES,final_bits='64', in_memory=True,clean=True, combine_type=imedian,preseve=False, \
-    				   final_wcs=True,final_rot=0.0,final_scale=0.03,final_pixfrac=pixfrac, final_kernel='gaussian')
+    				   final_wcs=True,final_rot=0.0,final_scale=pixscale,final_pixfrac=pixfrac,final_kernel='gaussian')
     elif instrum == 'ACS':
     	astrodrizzle.AstroDrizzle('@imlist.dat',output=filtname.lower(),num_cores=NCORES,final_bits='64,32',in_memory=True,clean=True, combine_type=imedian,preserve=False,\
-                                   final_wcs=True,final_rot=0.0,final_scale=0.03,final_pixfrac=pixfrac,final_kernel='gaussian')
+                                   final_wcs=True,final_rot=0.0,final_scale=pixscale,final_pixfrac=pixfrac,final_kernel='gaussian')
     else: raise Exception('Instrument '+instrum+' not covered in our case list.')
 
 
