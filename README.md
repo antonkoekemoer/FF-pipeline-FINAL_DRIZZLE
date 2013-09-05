@@ -3,16 +3,21 @@ FF-pipeline-FINAL
 Latest scripts and configuration files that will be used to align and drizzle images for the Frontier Fields. The order for calling the scripts is as follows:
 
 1. *run_make_crclean*
-    * create crcleans for _flts in each separate _asn file (default).
-    * optionally, can create crcleans for stack of flts.
+    * create crcleans for _flts in each separate _asn file (default) or any specified flts.
     * Output: [flt root]_crclean.fits; crclean.log (default)
+    * Options: [-a asn filename] [-log  AD log filename] [-c  AD # cores] 
+               [-na switch "no asn" to use all flts in cwd] [-im  flt images to use when -na switch is on]
+    * Examples:
+         >python run_make_crclean.py -c 10  [make crcleans separately for each asn file in cwd, using 10 cores].
+         >python run_make_crclean.py -na    [make crcleans in one call using all *fl?.fits images in cwd].
 
 2. *run_sex_crclean*
     * creates SExtractor catalogs for each crlean image using config named [filter].sex.crclean.config.
-    * makes trimmed catalog by keeping only sources with good flags (0/2) and bright fluxes (100 is default).
+    * makes trimmed catalog by keeping only the brightest objects (100 is default) with reliable flags (0 or 2).
     * creates ds9 region files for full and trimmed catalog (via the "cat2reg" gawk script).
     * creates external ascii file "catfile.sex" that will be used in step 3.
     * Output: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2); catfile.sex = tweak input
+    * Options: [-im 
 
     -- OR --
 
