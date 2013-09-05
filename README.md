@@ -13,12 +13,12 @@ Latest scripts and configuration files that will be used to align and drizzle im
          >python run_make_crclean.py -na    [make crcleans in one call using all *fl?.fits images in cwd].
 
 2. *run_sex_crclean*
-    * creates SExtractor catalogs for each crlean image using config named [filter].sex.crclean.config.
+    * _Purpose_: creates SExtractor catalogs for crclean images using config named [filter].sex.crclean.config.
     * makes trimmed catalog by keeping only the brightest objects (100 is default) with reliable flags (0 or 2).
     * creates ds9 region files for full and trimmed catalog (via the "cat2reg" gawk script).
     * creates external ascii file "catfile.sex" that will be used in step 3.
-    * Output: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2); catfile.sex = tweak input
-    * Options: [-im 
+    * _Output_: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2); catfile.sex = tweak input
+    * _Options_: [-im 
 
     -- OR --
 
