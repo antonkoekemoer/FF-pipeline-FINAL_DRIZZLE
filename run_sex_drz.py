@@ -73,7 +73,7 @@ if __name__=='__main__':
 	# -- trim catalog of sources with bad flags (29 keeps 0 & 2) AND faint sources
 	id,x,y,a,b,theta,kron,xwin,ywin,ra,dec,flux,fluxerr,mag,magerr,faper1,faper2,faper1err,faper2err,flag,sclass = np.loadtxt(catname,unpack=True)
 	fluxmin = sorted(faper2,reverse=True)[np.min([len(faper2),maxobj])-1]
-       	gd = np.where(((np.int32(flag) & 29) == 0) & (faper2 > fluxmin))[0]		# USING APER FLUX
+       	gd = np.where(((np.int32(flag) & 29) == 0) & (faper2 > fluxmin) & (sclass > 0.8))[0]		# USING APER FLUX
 	np.savetxt(tcatname,zip(id[gd],x[gd],y[gd],a[gd],b[gd],theta[gd],kron[gd],xwin[gd],ywin[gd],ra[gd],dec[gd],flux[gd],fluxerr[gd],mag[gd],magerr[gd],faper1[gd], faper2[gd],faper1err[gd], faper2err[gd],flag[gd],sclass[gd]))
 
 	# -- create ds9 region files for trimmed catalog
