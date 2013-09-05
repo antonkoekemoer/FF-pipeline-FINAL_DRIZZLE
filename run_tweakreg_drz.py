@@ -31,7 +31,7 @@ from drizzlepac import tweakreg
 if __name__=='__main__':
     # Parse input parameters
     parser = argparse.ArgumentParser(description='Run tweakreg on input images using custom source catalogs.')
-    parser.add_argument('-im', '--images',default='*fl?.fits', type=str, help='Input image file(s). \
+    parser.add_argument('-im', '--images',default='*fl?.fits', type=str, help='Input flt or drz image(s). \
 				 Default is all _fl? images in current directory.')
     parser.add_argument('-cf', '--catfile',default='catfile.sex', type=str, help='Input name of catfile. \
 				 Default is catfile.sex.')
