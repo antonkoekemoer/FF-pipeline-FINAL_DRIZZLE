@@ -7,7 +7,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * Output: [flt root]_crclean.fits; crclean.log (default)
     * Options: [-a asn filename] [-log  AD log filename] [-c  AD # cores] 
                [-na switch "no asn" to use all flts in cwd] [-im  flt images to use when -na switch is on]
-    * Examples:
+    * Examples:  
          >python run_make_crclean.py -c 10  [make crcleans separately for each asn file in cwd, using 10 cores].
          >python run_make_crclean.py -na    [make crcleans in one call using all *fl?.fits images in cwd].
 
