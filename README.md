@@ -56,9 +56,14 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * _WARNING_: expects default.param, default.conv, default.nnw, cat2reg files, & [filter].sex.drz.config in cwd.
 
 7. *run_tweakreg_drz*
-    * same script used to align flt images, but called with refim and refcat to align drz-->drz.
-    * Output: tweakreg.log; imlist.dat = list of flt images to align; *fit.match = catalog of matched objects
+    * _Purpose_: same script used to align flt images, but called with refim and refcat to align drz-->drz.
+    * _Output_: tweakreg.log; imlist.dat = list of flt images to align; *fit.match = catalog of matched objects
+    * _Options_:  
+               [-im images] [-cf catfile name] [-log tweakreg logfile name] [-rim ref image] [-rcat ref catalog]  
+               [-xc catalog x column] [-yc catalog y column] [-rxc refcat x column] [-ryc refcat y column]
 
-
-
-
+8. *run_tweakreg_make_xyresids*  (SAME AS STEP4 BUT MAKES DIAGRAMS FOR DRZ-->DRZ DIAGRAMS -- UNDER CONSTRUCTION)
+    * _Purpose_: constructs tweakreg diagnostic diagrams (delta-x/y vs x/y and vectorgram) using *fit.match files.
+    * _Output_: xxx_xyresids.pdf & xxx_xyvector.pdf
+    * _Options_: [-cat tweakreg *fit.match catalogs]
+    * _WARNING_: expects corresponding flt files in same directory.
