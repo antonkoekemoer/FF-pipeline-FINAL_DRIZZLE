@@ -19,6 +19,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * creates external ascii file "catfile.sex" that will be used in step 3.
     * _Output_: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2); catfile.sex = Step 3 tweak input
     * _Options_: [-im images] [-max maximum objects to keep in trimmed catalog]
+    * _WARNING_: expects default.param, default.conv, default.nnw, cat2reg files, & [filter].sex.crclean.config in cwd.
 
     -- OR --
 
