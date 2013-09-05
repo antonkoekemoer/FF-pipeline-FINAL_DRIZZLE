@@ -38,7 +38,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * creates SExtractor catalogs for drizzled images using config named [filter].sex.drz.config.
     * removes bad sources such as objects with bad flags and keeps only 100 brightest (default).
     * creates ds9 region files for full and trimmed catalog (via the "cat2reg" gawk script).
-    * NOTE: we still have to edit the selection criteria, e.g., select on mrphology via CLASS_STAR to only keep 
+    * NOTE: we still have to select on morphology via CLASS_STAR to only keep stars
     * Output: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2).
 
 7. *run_tweakreg*
