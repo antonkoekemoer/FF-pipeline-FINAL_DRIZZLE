@@ -18,7 +18,8 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * creates ds9 region files for full and trimmed catalog (via the "cat2reg" gawk script).
     * creates external ascii file "catfile.sex" that will be used in step 3.
     * _Output_: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2); catfile.sex = tweak input
-    * _Options_: [-im 
+    * _Options_:
+               [-im images] [-max maximum objects to keep in trimmed catalog]
 
     -- OR --
 
