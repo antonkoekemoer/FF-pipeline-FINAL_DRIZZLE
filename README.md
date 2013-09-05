@@ -43,11 +43,12 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * _WARNING_: expects corresponding flt files in same directory.
 
 5. *run_drizzle*
-    * creates drizzled images from a stack of aligned flt images.
-    * Output: drizzled sci, wht, and ctx images; astrodrizzle.log
+    * _Purpose_: creates drizzled images from a stack of aligned flt images.
+    * _Output_: drizzled sci, wht, and ctx images; astrodrizzle.log (default); "imlist.dat" - list of images to drizzle
+    * _Options_: [-im images] [-pf AD final_pixfrac value] [-ps AD final_scale value] [-c # cores]
 
 6. *run_sex_drz*
-    * creates SExtractor catalogs for drizzled images using config named [filter].sex.drz.config.
+    * _Purpose_: creates SExtractor catalogs for drizzled images using config named [filter].sex.drz.config.
     * removes bad sources such as objects with bad flags and keeps only 100 brightest (default).
     * creates ds9 region files for full and trimmed catalog (via the "cat2reg" gawk script).
     * Output: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2).
