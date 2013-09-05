@@ -2,7 +2,7 @@
 
 '''
 ABOUT:
-This program runs tweakreg on a list of _fl? images or drizzled-to-drizzled images using external catalogs to compare object centroids.
+This program runs tweakreg on a list of _fl? images
 
 DEPENDS:
 Python 2.5.4
@@ -16,7 +16,7 @@ July 2013: Original script (v0.1).
 FUTURE IMPROVEMENTS:
 
 USE:
-python run_tweakreg.py
+python run_tweakreg_flt.py
 '''
 
 __author__='D.M. HAMMER'
