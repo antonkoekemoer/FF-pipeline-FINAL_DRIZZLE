@@ -3,7 +3,7 @@ FF-pipeline-FINAL
 Latest scripts and configuration files that will be used to align and drizzle images for the Frontier Fields. The order for calling the scripts is as follows:
 
 1. *run_make_crclean*
-    * create crcleans for _flts in each separate _asn file (default) or any specified flts.
+    * _Purpose_: create crcleans for _flts in each separate _asn file (default) or any specified flts.
     * _Output_: [flt root]_crclean.fits; crclean.log (default)
     * _Options_:  
                [-a asn filename] [-log  AD log filename] [-c  AD # cores]  
