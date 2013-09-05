@@ -45,9 +45,9 @@ if __name__=='__main__':
                                  Default = SExtractor XWIN column.')
     parser.add_argument('-yc', '--ycol',default=9, type=int, help='Input catalog column that corresponds to y. \
                                  Default = SExtractor YWIN column.')
-    parser.add_argument('-rxc', '--refxcol',default=8, type=int, help='Input catalog column that corresponds to x. \
+    parser.add_argument('-rxc', '--refxcol',default=8, type=int, help='Input (ref)catalog column that corresponds to x. \
                                  Default = SExtractor XWIN column.')
-    parser.add_argument('-ryc', '--refycol',default=9, type=int, help='Input catalog column that corresponds to y. \
+    parser.add_argument('-ryc', '--refycol',default=9, type=int, help='Input (ref)catalog column that corresponds to y. \
                                  Default = SExtractor YWIN column.')
     options = parser.parse_args()
     logfile = options.logfile
