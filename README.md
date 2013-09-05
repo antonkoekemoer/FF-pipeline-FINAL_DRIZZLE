@@ -66,4 +66,4 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * _Purpose_: constructs tweakreg diagnostic diagrams (delta-x/y vs x/y and vectorgram) using *fit.match files.
     * _Output_: xxx_xyresids.pdf & xxx_xyvector.pdf
     * _Options_: [-cat tweakreg *fit.match catalogs]
-    * _WARNING_: expects corresponding flt files in same directory.
+    * _WARNING_: expects corresponding drz files in same directory.
