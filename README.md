@@ -22,7 +22,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * creates external ascii file "catfile.coo" that will be used in step 3.
     * Output: *.coo = trimmed ImageFind catalog; catfile.coo = tweakreg input
 
-3. *run_tweakreg*
+3. *run_tweakreg_flt*
     * aligns _flt images using tweakreg with external catalogs (either SExtractor,ImageFind, or hst2align).
     * Output: tweakreg.log; imlist.dat = list of flt images to align; *fit.match = catalog of matched objects
 
@@ -41,7 +41,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
     * NOTE: we still have to select on morphology via CLASS_STAR to only keep stars
     * Output: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2).
 
-7. *run_tweakreg*
+7. *run_tweakreg_drz*
     * same script used to align flt images, but called with refim and refcat to align drz-->drz.
     * Output: tweakreg.log; imlist.dat = list of flt images to align; *fit.match = catalog of matched objects
 
