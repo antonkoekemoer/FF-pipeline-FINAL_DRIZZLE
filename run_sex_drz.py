@@ -18,11 +18,11 @@ Aug 2013: Modified to run on any instrument's image (e.g., double-chip ACS/optic
 FUTURE IMPROVEMENTS:
 
 USE:
-python run_sex_drz
+python run_sex_drz.py
 '''
 
 __author__='D.M. HAMMER'
-__version__= 0.1
+__version__= 0.2
 
 
 import os, glob, argparse, pdb, pylab, pyfits
