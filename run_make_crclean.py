@@ -41,7 +41,7 @@ if __name__=='__main__':
                                  Default is False, i.e., by default, we construct crleans spearately for flts in each _asn.fits file.')
     parser.add_argument('-c', '--cores',default=4, type=int, help='Input number of processing cores used by AD. \
                                  Default is 4.')
-    parser.add_argument('-i', '--images',default='*fl?.fits', type=str, help='Input fl? fits images. \
+    parser.add_argument('-im', '--images',default='*fl?.fits', type=str, help='Input fl? fits images. \
                                  Default is all _fl? images in current directory.')
 
 
