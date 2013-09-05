@@ -37,9 +37,10 @@ Latest scripts and configuration files that will be used to align and drizzle im
                [-xc catalog x column] [-yc catalog y column] [-rxc refcat x column] [-ryc refcat y column]
 
 4. *run_tweakreg_make_xyresids*
-    * constructs tweakreg diagnostic diagrams (delta-x/y vs x/y and vectorgram) using *fit.match files.
-    * WARNING: expects corresponding flt files in same directory.
-    * Output: xxxxx_xyresids.pdf & xxxxx_xyvector.pdf
+    * _Purpose_: constructs tweakreg diagnostic diagrams (delta-x/y vs x/y and vectorgram) using *fit.match files.
+    * _Output_: xxx_xyresids.pdf & xxx_xyvector.pdf
+    * _Options_: [-cat tweakreg *fit.match catalogs]
+    * _WARNING_: expects corresponding flt files in same directory.
 
 5. *run_drizzle*
     * creates drizzled images from a stack of aligned flt images.
