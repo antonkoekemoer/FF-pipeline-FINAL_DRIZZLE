@@ -2,7 +2,7 @@
 
 '''
 ABOUT:
-This program runs tweakreg on a list of _fl? images or drizzled-to-drizzled images using external catalogs to compare object centroids.
+This program runs tweakreg to align drizzled images to a reference image using external catalogs.
 
 DEPENDS:
 Python 2.5.4
