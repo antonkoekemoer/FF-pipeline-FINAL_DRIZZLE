@@ -2,11 +2,7 @@
 
 '''
 ABOUT:
-<<<<<<< HEAD
-This program runs tweakreg on a list of _fl? images
-=======
 This program runs tweakreg to align drizzled images to a reference image using external catalogs.
->>>>>>> 7a8b8da67e00ddbc3e0c4c2d38015da8b246435d
 
 DEPENDS:
 Python 2.5.4
@@ -20,7 +16,7 @@ July 2013: Original script (v0.1).
 FUTURE IMPROVEMENTS:
 
 USE:
-python run_tweakreg_flt.py
+python run_tweakreg_drz.py
 '''
 
 __author__='D.M. HAMMER'
