@@ -56,7 +56,7 @@ if __name__=='__main__':
             filtname = fheader['FILTER']
         else: #assuming ACS
             filtname = fheader['FILTER1']
-            if filtname[0] == 'C': filtname == fheader['FILTER2']	
+            if filtname[0] == 'C': filtname = fheader['FILTER2']	
 
 
 	# -- get config name
