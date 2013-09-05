@@ -37,7 +37,7 @@ if __name__=='__main__':
 				 Default is catfile.sex.')
     parser.add_argument('-log', '--logfile',default='tweakreg.log', type=str, help='Input name of tweakreg log file. \
 				 Default is tweakreg.log')
-    parser.add_argument('-rim', '--refim',default='', type=str, help='Input refererence image. \
+    parser.add_argument('-rim', '--refim',default='', type=str, help='Input reference image. \
                                  There is no default - must be entered.')
     parser.add_argument('-rcat', '--refcat',default='', type=str, help='Input image file(s). \
                                  There is no default - must be entered.')
