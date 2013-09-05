@@ -68,9 +68,6 @@ if __name__=='__main__':
     teal.unlearn('astrodrizzle')
     iraf.unlearn('astrodrizzle')
 
-    # MISSING STEP HERE!!!!
-    # --We need to figure out which pixfrac/pixscale to select. Run test of rms/median on [WHT] image.
-
     if instrum == 'WFC3':
         astrodrizzle.AstroDrizzle('@imlist.dat',output=filtname.lower(),num_cores=NCORES,final_bits='64', in_memory=True,clean=True, combine_type=imedian,preseve=False, \
     				   final_wcs=True,final_rot=0.0,final_scale=pixscale,final_pixfrac=pixfrac,final_kernel='gaussian')
