@@ -44,7 +44,8 @@ if __name__=='__main__':
     imlist.sort()
     maxobj = options.maxobj
 
-
+    tcatname_all = []
+  
     # -- Run SExtractor on each image
     #--------------------------------
     for im in imlist:
@@ -65,6 +66,7 @@ if __name__=='__main__':
 	# -- assign output catalog name
 	catname = im.split('fits')[0]+'sex.all'
 	tcatname = im.split('fits')[0]+'sex'
+	tcatname_all.append(tcatname)
 
         # -- run SExtractor
 	call(['sex','-c',configname,im,'-CATALOG_NAME',catname])
@@ -78,3 +80,8 @@ if __name__=='__main__':
 
 	# -- create ds9 region files for trimmed catalog
        	call(['cat2reg',tcatname])
+    
+       	
+    # -- Create "catfile" for input to tweakreg
+    #------------------------------------------
+    np.savetxt('catfile.sex',zip(imlist,tcatname_all),fmt='%s')
