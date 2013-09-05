@@ -49,9 +49,11 @@ Latest scripts and configuration files that will be used to align and drizzle im
 
 6. *run_sex_drz*
     * _Purpose_: creates SExtractor catalogs for drizzled images using config named [filter].sex.drz.config.
-    * removes bad sources such as objects with bad flags and keeps only 100 brightest (default).
+    * makes trimmed catalog same as step2 above (i.e., select on flags & flux), but also selects stars using CLASS_STAR parameter.
     * creates ds9 region files for full and trimmed catalog (via the "cat2reg" gawk script).
-    * Output: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2).
+    * _Output_: *.sex.all = full catalog; *.sex = trimmed catalog; *.reg = ds9 region file (2).
+    * _Options_: [-im images] [-max maximum objects to keep in trimmed catalog]
+    * _WARNING_: expects default.param, default.conv, default.nnw, cat2reg files, & [filter].sex.drz.config in cwd.
 
 7. *run_tweakreg_drz*
     * same script used to align flt images, but called with refim and refcat to align drz-->drz.
