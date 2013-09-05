@@ -173,7 +173,7 @@ if __name__=='__main__':
 
 	# -- save figure
 	pylab.savefig(pref+'_tweakreg_xyresids.pdf')
-
+	pylab.savefig(pref+'_tweakreg_xyresids.png')
 
         # MAKE VECTORGRAM
 	# ----------------
@@ -198,4 +198,5 @@ if __name__=='__main__':
         qk = pylab.quiverkey(Q, 0.915, 0.937,0.05,'0.05 pix', labelpos='N', coordinates='axes', fontproperties={'weight': 'bold'}, color='black')
         pylab.show()
         pylab.savefig(pref+'_tweakreg_xyvector.pdf')
+        pylab.savefig(pref+'_tweakreg_xyvector.png')
 
