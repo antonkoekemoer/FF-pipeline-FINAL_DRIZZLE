@@ -28,6 +28,7 @@ Latest scripts and configuration files that will be used to align and drizzle im
 
 4. *run_tweakreg_make_xyresids*
     * constructs tweakreg diagnostic diagrams (delta-x/y vs x/y and vectorgram) using *fit.match files.
+    * WARNING: expects corresponding flt files in same directory.
     * Output: xxxxx_xyresids.pdf & xxxxx_xyvector.pdf
 
 5. *run_drizzle*
